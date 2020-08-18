@@ -5,7 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using X.Micro.Client.ClientA.Models;
+using X.Micro.Client.ClientA.Utils;
 
 namespace X.Micro.Client.ClientA.Controllers
 {
@@ -18,8 +20,11 @@ namespace X.Micro.Client.ClientA.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var url = "https://localhost:19000/api/student";
+            var res = await WebApiHelper.InvokeApi(url);
+            ViewBag.Students = JsonConvert.DeserializeObject<List<string>>(res);
             return View();
         }
 
