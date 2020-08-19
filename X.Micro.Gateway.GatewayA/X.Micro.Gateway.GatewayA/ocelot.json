@@ -2,18 +2,22 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/{url}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "127.0.0.1",
           "Port": 19001
+        },
+        {
+          "Host": "127.0.0.1",
+          "Port": 19002
         }
       ],
       "UpstreamPathTemplate": "/api/{url}",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
     }
-  ],
-  "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:5000"
-  }
+  ]
 }
