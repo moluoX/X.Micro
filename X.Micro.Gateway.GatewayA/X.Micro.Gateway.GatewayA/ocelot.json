@@ -3,21 +3,23 @@
     {
       "DownstreamPathTemplate": "/api/{url}",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "127.0.0.1",
-          "Port": 19001
-        },
-        {
-          "Host": "127.0.0.1",
-          "Port": 19002
-        }
-      ],
-      "UpstreamPathTemplate": "/api/{url}",
+      "UpstreamPathTemplate": "/servicea/{url}",
       "UpstreamHttpMethod": [ "Get", "Post" ],
+      "ServiceName": "X.Micro.Service.ServiceA",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
     }
-  ]
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://127.0.0.1:19020",
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "PollConsul",
+      "Token": null,
+      "ConfigurationKey": "Oceolot_A",
+      "PollingInterval": 1000
+    }
+  }
 }
