@@ -22,7 +22,7 @@ namespace X.Micro.Client.ClientA.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var url = "https://localhost:19000/api/student";
+            var url = $"{ConsulHelper.GetServiceUrl()}api/student";
             var res = await WebApiHelper.InvokeApi(url);
             ViewBag.Students = JsonConvert.DeserializeObject<List<string>>(res);
             return View();
