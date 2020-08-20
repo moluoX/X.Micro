@@ -8,6 +8,10 @@
       "ServiceName": "X.Micro.Service.ServiceA",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 15,
+        "Region": "GatewayACacheA"
       }
     }
   ],

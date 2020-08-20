@@ -20,7 +20,7 @@ namespace X.Micro.Service.ServiceA.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2", _configuration["port"] };
+            return new string[] { "value1", "value2", _configuration["port"], DateTime.Now.ToString() };
         }
 
         // GET api/<StudentController>/5
