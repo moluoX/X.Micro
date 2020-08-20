@@ -18,7 +18,7 @@
   "GlobalConfiguration": {
     "BaseUrl": "https://127.0.0.1:19020",
     "ServiceDiscoveryProvider": {
-      "Host": "localhost",
+      "Host": "192.168.99.100",
       "Port": 8500,
       "Type": "PollConsul",
       "Token": null,
